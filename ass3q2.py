@@ -41,10 +41,6 @@ def sigmoid(x):
     return 1/(1+np.exp(-x))
 
 def Reluu(x):
-    # for i in range(len(x)):
-    #     for j in range(len(x[0])):
-    #         if x[i][j]<0:
-    #             x[i][j]=0
     return np.maximum(0, x)
 
 def forward_prop(hidden_layers,X,y,W,relu):
@@ -160,87 +156,87 @@ plt.xlabel("hidden units")
 plt.ylabel("f1 score")
 plt.show()
 
-# F1_scores = []
-# all = [[512],[512,256],[512,256,128],[512,256,128,64]]
-# oii = [1,2,3,4]
-# for hid in all:
-#     W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),30,False,False)
-#     print("hidden layer is",hid)
-#     print("Over Train set")
-#     f1_train = testing(W,X_train,y_train,hid,False)
-#     print("Over Test set")
-#     f1_test = testing(W,X_test[:1000],y_test,hid,False)
-#     F1_scores.append(f1_test)
-# plt.figure()
-# plt.plot(oii,F1_scores)
-# plt.title("F1 scores over different network depths")
-# plt.xlabel("network depth")
-# plt.ylabel("f1 score")
-# plt.show()
+F1_scores = []
+all = [[512],[512,256],[512,256,128],[512,256,128,64]]
+oii = [1,2,3,4]
+for hid in all:
+    W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),30,False,False)
+    print("hidden layer is",hid)
+    print("Over Train set")
+    f1_train = testing(W,X_train,y_train,hid,False)
+    print("Over Test set")
+    f1_test = testing(W,X_test[:1000],y_test,hid,False)
+    F1_scores.append(f1_test)
+plt.figure()
+plt.plot(oii,F1_scores)
+plt.title("F1 scores over different network depths")
+plt.xlabel("network depth")
+plt.ylabel("f1 score")
+plt.show()
 
-# F1_scores = []
-# all = [[512],[512,256],[512,256,128],[512,256,128,64]]
-# oii = [1,2,3,4]
-# for hid in all:
-#     W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),20,True,False)
-#     print("hidden layer is",hid)
-#     print("Over Train set")
-#     f1_train = testing(W,X_train,y_train,hid,False)
-#     print("Over Test set")
-#     f1_test = testing(W,X_test[:1000],y_test,hid,False)
-#     F1_scores.append(f1_test)
-# plt.figure()
-# plt.plot(oii,F1_scores)
-# plt.title("F1 scores over different network depths")
-# plt.xlabel("network depth")
-# plt.ylabel("f1 score")
-# plt.show()
+F1_scores = []
+all = [[512],[512,256],[512,256,128],[512,256,128,64]]
+oii = [1,2,3,4]
+for hid in all:
+    W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),20,True,False)
+    print("hidden layer is",hid)
+    print("Over Train set")
+    f1_train = testing(W,X_train,y_train,hid,False)
+    print("Over Test set")
+    f1_test = testing(W,X_test[:1000],y_test,hid,False)
+    F1_scores.append(f1_test)
+plt.figure()
+plt.plot(oii,F1_scores)
+plt.title("F1 scores over different network depths")
+plt.xlabel("network depth")
+plt.ylabel("f1 score")
+plt.show()
 
-# F1_scores = []
-# all = [[512],[512,256],[512,256,128],[512,256,128,64]]
-# oii = [1,2,3,4]
-# for hid in all:
-#     W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),20,True,True)
-#     print("hidden layer is",hid)
-#     print("Over Train set")
-#     f1_train = testing(W,X_train,y_train,hid,False)
-#     print("Over Test set")
-#     f1_test = testing(W,X_test[:1000],y_test,hid,False)
-#     F1_scores.append(f1_test)
-# plt.figure()
-# plt.plot(oii,F1_scores)
-# plt.title("F1 scores over different network depths in Relu activation")
-# plt.xlabel("network depth")
-# plt.ylabel("f1 score")
-# plt.show()
+F1_scores = []
+all = [[512],[512,256],[512,256,128],[512,256,128,64]]
+oii = [1,2,3,4]
+for hid in all:
+    W = train_neural_network(hid,32,X_train,y_train_onehot,10**(-10),20,True,True)
+    print("hidden layer is",hid)
+    print("Over Train set")
+    f1_train = testing(W,X_train,y_train,hid,False)
+    print("Over Test set")
+    f1_test = testing(W,X_test[:1000],y_test,hid,False)
+    F1_scores.append(f1_test)
+plt.figure()
+plt.plot(oii,F1_scores)
+plt.title("F1 scores over different network depths in Relu activation")
+plt.xlabel("network depth")
+plt.ylabel("f1 score")
+plt.show()
 
-# F1_scores = []
-# all = [[512],[512,256],[512,256,128],[512,256,128,64]]
-# oii = [1,2,3,4]
-# for hid in all:
-#     clf = MLPClassifier(hidden_layer_sizes=hid,activation='relu',solver='sgd',alpha=0,batch_size=32,learning_rate='invscaling',max_iter=20,random_state=0)
-#     clf.fit(X_train, y_train)
-#     print("hidden layer is",hid)
-#     print("Over Train set")
-#     pred_train = clf.predict(X_train)
-#     precision = precision_score(y_train,pred_train, average='macro')
-#     recall = recall_score(y_train,pred_train, average='macro')
-#     f1 = f1_score(y_train,pred_train, average='macro')
-#     print(precision,"precision")
-#     print(recall,"recall")
-#     print(f1,"f1 score")
-#     print("Over Test set")
-#     pred_test = clf.predict(X_test[:1000])
-#     precision = precision_score(y_test,pred_test, average='macro')
-#     recall = recall_score(y_test,pred_test, average='macro')
-#     f1_test = f1_score(y_test,pred_test, average='macro')
-#     F1_scores.append(f1_test)
-#     print(precision,"precision")
-#     print(recall,"recall")
-#     print(f1_test,"f1 score")
-# plt.figure()
-# plt.plot(oii,F1_scores)
-# plt.title("F1 scores over different network depths using sklearn")
-# plt.xlabel("network depth")
-# plt.ylabel("f1 score")
-# plt.show()
+F1_scores = []
+all = [[512],[512,256],[512,256,128],[512,256,128,64]]
+oii = [1,2,3,4]
+for hid in all:
+    clf = MLPClassifier(hidden_layer_sizes=hid,activation='relu',solver='sgd',alpha=0,batch_size=32,learning_rate='invscaling',max_iter=20,random_state=0)
+    clf.fit(X_train, y_train)
+    print("hidden layer is",hid)
+    print("Over Train set")
+    pred_train = clf.predict(X_train)
+    precision = precision_score(y_train,pred_train, average='macro')
+    recall = recall_score(y_train,pred_train, average='macro')
+    f1 = f1_score(y_train,pred_train, average='macro')
+    print(precision,"precision")
+    print(recall,"recall")
+    print(f1,"f1 score")
+    print("Over Test set")
+    pred_test = clf.predict(X_test[:1000])
+    precision = precision_score(y_test,pred_test, average='macro')
+    recall = recall_score(y_test,pred_test, average='macro')
+    f1_test = f1_score(y_test,pred_test, average='macro')
+    F1_scores.append(f1_test)
+    print(precision,"precision")
+    print(recall,"recall")
+    print(f1_test,"f1 score")
+plt.figure()
+plt.plot(oii,F1_scores)
+plt.title("F1 scores over different network depths using sklearn")
+plt.xlabel("network depth")
+plt.ylabel("f1 score")
+plt.show()
